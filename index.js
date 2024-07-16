@@ -10,11 +10,13 @@ const PORT = process.env.PORT;
 
 conn();
 
+app.use(express.json());
+
 app.set("views", __dirname + "/views");
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 
-app.use("/fruits", fruitRoutes);
+app.use("/api/fruits", fruitRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home");
